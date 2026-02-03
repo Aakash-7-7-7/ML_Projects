@@ -1,6 +1,7 @@
 import pandas as pd 
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split as tts
+import joblib
 
 class Preprocessor:
     def __init__(self):
@@ -28,4 +29,7 @@ class Preprocessor:
         X_test_scaled=self.scaler.transform(X_test)
 
         return X_train_scaled,X_test_scaled
+    
+    def save_scaler(self,path="scaler.pkl"):
+        joblib.dump(self.scale_data,path)
     
