@@ -18,3 +18,5 @@ uv.lock
 .vscode/
 .idea/
 .DS_Store
+mlflow.db
+**/mlflow.db
