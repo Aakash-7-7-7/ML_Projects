@@ -3,13 +3,15 @@ from sklearn.preprocessing import StandardScaler,OneHotEncoder
 from sklearn.model_selection import train_test_split as tts
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+
 
 class Preprocessor:
 
     def __init__(self,target_column:str):
         self.target_column=target_column
 
-    def split_feature_target(self,df:pd.DataFrame):
+    def split_features_target(self,df:pd.DataFrame):
         '''
         Split the data into X features and y features
         '''
@@ -27,8 +29,11 @@ class Preprocessor:
         numer_feat=X.select_dtypes(include=['float32','float64']).columns
         cat_feature=X.select_dtypes(include=['object']).columns
 
-        numer_pipeline=Pipeline(steps=[("scaler",StandardScaler)])
-        cat_pipeline=Pipeline(steps=[("encoder",OneHotEncoder(handle_unknown='ignore'))])
+        numer_pipeline=Pipeline(steps=[("scaler",StandardScaler()),
+                                       ('imputer',SimpleImputer(strategy='most_frequent'))])
+        
+        cat_pipeline=Pipeline(steps=[("encoder",OneHotEncoder(handle_unknown='ignore')),
+                                     ('imputer',SimpleImputer(strategy='most_frequent'))])
 
         preprocessor=ColumnTransformer(
             transformers=[

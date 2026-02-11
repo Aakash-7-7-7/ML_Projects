@@ -1,7 +1,7 @@
 from abc import ABC,abstractmethod
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.svm import SVC
+from sklearn.svm import SVC,SVR
 
 class BaseModel(ABC):
 
@@ -38,20 +38,20 @@ class LinearRegressionModel(BaseModel):
 #-------------------------
 #SVC
 #-------------------------
-class SupportVectorModel(ABC):
+class SupportVectorModel(BaseModel):
 
     def __init__(self):
-        self.model=SVC(
+        self.model=SVR(
             kernel='rbf',
-            degree=3,
-            decision_function_shape='ovr'
+            C=100,
+            gamma=0.4
         )
 
     def train(self,X_train,y_train):
         self.model.fit(X_train,y_train)
 
     def predict(self,X):
-        self.model.predict(X)
+       return self.model.predict(X)
 
     def get_name(self):
         return "Support Vector Machine"

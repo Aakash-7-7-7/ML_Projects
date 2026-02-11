@@ -1,32 +1,23 @@
-'''import os
-from automl.data_loader import DataLoader
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(BASE_DIR, "data", "housing.csv")
-
-loader = DataLoader(DATA_PATH)
-df = loader.load_data()
-
-print(df.isnull().sum())
-
-
 from automl.data_loader import DataLoader
 from automl.preprocessor import Preprocessor
+from automl.automl_engine import AutoMLEngine
 
-loader=DataLoader('data/housing.csv')
-df=loader.load_data()
 
-preprocessor=Preprocessor(target_column='median_house_value')
+# Load data
+loader = DataLoader("data/housing.csv")
+df = loader.load_data()
 
-X,y=preprocessor.split_feature_target(df)
-X_train,X_test,y_train,y_test=preprocessor.train_test_split(X,y)
+# Preprocess
+preprocessor_obj = Preprocessor(target_column="median_house_value")
+X, y = preprocessor_obj.split_features_target(df)
+X_train, X_test, y_train, y_test = preprocessor_obj.train_test_split(X, y)
+preprocessor = preprocessor_obj.build_pipeline(X_train)
 
-pipeline=preprocessor.build_pipeline(X_train)
+# Run AutoML
+engine = AutoMLEngine(experiment_name="Housing_AutoML_Trial")
 
-print("Success")
-'''
+best_model = engine.run(
+    X_train, X_test, y_train, y_test, preprocessor
+)
 
-from automl.models import SupportVectorModel
-
-model = SupportVectorModel()
-print(model.get_name())
+print("\nAutoML process completed.")
