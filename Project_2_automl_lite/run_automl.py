@@ -26,7 +26,7 @@ pipeline=preprocessor.build_pipeline(X_train)
 print("Success")
 '''
 
-from automl.models import LinearRegressionModel
+from automl.models import SupportVectorModel
 
-model = LinearRegressionModel()
+model = SupportVectorModel()
 print(model.get_name())
