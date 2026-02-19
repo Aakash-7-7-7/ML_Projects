@@ -11,9 +11,13 @@ def rag_agent(retriever,api_key):
     )
     prompt=ChatPromptTemplate.from_template("""
     You are a professional AI assistant.
-
+                                            
+    Use the context if relevant.
+    
+                                   
+    
     Use ONLY the provided context to answer.
-    If not found, say: "The answer is not available in the provided documents."
+    If not found, say: "The answer is not available in the provided documents.
 
     Context:
     {context}
