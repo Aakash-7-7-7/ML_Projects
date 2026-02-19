@@ -19,3 +19,4 @@ uv.lock
 .idea/
 .DS_Store
 mlflow.db
+chroma_db

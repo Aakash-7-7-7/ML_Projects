@@ -1,0 +1,56 @@
+Deep learning is a specialized branch of machine learning that focuses on training artificial neural networks with many layers to learn complex patterns from large amounts of data.
+It is inspired by the structure and functioning of the human brain, particularly the way biological neurons process information.
+Deep learning models are called deep neural networks because they contain multiple hidden layers between the input and output layers.
+Each layer extracts increasingly abstract features from the raw input data.
+The input layer receives the raw data such as images, text, or audio signals.
+Hidden layers transform the input data through weighted connections and activation functions.
+The output layer produces the final prediction or classification result.
+Each connection between neurons has a weight that determines the strength of the signal.
+During training, these weights are adjusted to minimize prediction error.
+The adjustment of weights is done using an algorithm called backpropagation.
+Backpropagation computes gradients of the loss function with respect to each weight.
+These gradients are then used in optimization algorithms such as gradient descent.
+A loss function measures how far the predicted output is from the actual target.
+The goal of training is to minimize this loss value.
+Activation functions introduce non-linearity into the network.
+Without non-linearity, neural networks would only learn simple linear relationships.
+Common activation functions include ReLU, sigmoid, and tanh.
+ReLU is widely used because it helps avoid the vanishing gradient problem.
+The vanishing gradient problem occurs when gradients become too small during backpropagation.
+Deep learning models require large amounts of labeled data for effective training.
+They also require powerful computational resources such as GPUs or TPUs.
+Graphics Processing Units accelerate matrix computations needed for training neural networks.
+Deep learning excels in tasks involving unstructured data.
+Image recognition is one of the most successful applications of deep learning.
+Convolutional Neural Networks are designed specifically for image processing tasks.
+They use convolutional layers to detect spatial patterns such as edges and textures.
+Pooling layers reduce the spatial size of feature maps.
+Fully connected layers combine extracted features for final classification.
+Recurrent Neural Networks are designed for sequential data such as text or time series.
+They maintain memory of previous inputs through internal states.
+Long Short-Term Memory networks are a type of RNN that handle long dependencies.
+Transformers are modern architectures widely used in natural language processing.
+They rely on attention mechanisms to focus on important parts of input data.
+Attention mechanisms allow models to weigh different input elements differently.
+Deep learning is the foundation of large language models.
+It powers chatbots, translation systems, and speech assistants.
+Autoencoders are neural networks used for dimensionality reduction and anomaly detection.
+Generative Adversarial Networks consist of two competing neural networks.
+One network generates data while the other evaluates its authenticity.
+This adversarial process improves data generation quality.
+Overfitting is also a challenge in deep learning.
+Techniques such as dropout and regularization help reduce overfitting.
+Batch normalization stabilizes and speeds up training.
+Hyperparameters such as learning rate and batch size significantly affect performance.
+Model evaluation requires validation datasets separate from training data.
+Deep learning models can contain millions or even billions of parameters.
+Because of this complexity, interpretability becomes difficult.
+Researchers are developing explainable AI methods to improve transparency.
+Deep learning has revolutionized healthcare diagnostics and medical imaging.
+It enables real-time object detection in autonomous vehicles.
+It improves fraud detection systems in finance.
+Speech recognition systems rely heavily on deep neural networks.
+Deep learning continues to evolve with more efficient architectures.
+Pretrained models and transfer learning reduce training time and data requirements.
+As computing power increases, deep learning systems become more capable.
+The future of deep learning involves combining efficiency, scalability, and ethical responsibility to build intelligent systems that assist humans in solving complex global challenges.
