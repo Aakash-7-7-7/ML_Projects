@@ -1,50 +1,46 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
+from abc import ABC,abstractmethod
+from sklearn.linear_model import LinearRegression
+import numpy as np 
 
 
-class Preprocessor:
-    def __init__(self, target_column: str):
-        self.target_column = target_column
+class BaseModel(ABC):
 
-    def split_features_target(self, df: pd.DataFrame):
-        """
-        Splits dataframe into X (features) and y (target)
-        """
-        X = df.drop(columns=[self.target_column])
-        y = df[self.target_column]
-        return X, y
+    @abstractmethod
+    def train(self,X_train,y_train):
+        pass
 
-    def train_test_split(self, X, y, test_size=0.2, random_state=42):
-        """
-        Splits data into train and test sets
-        """
-        return train_test_split(
-            X, y, test_size=test_size, random_state=random_state
-        )
+    @abstractmethod
+    def predict(self,X):
+        pass
 
-    def build_pipeline(self, X: pd.DataFrame) -> ColumnTransformer:
-        """
-        Builds preprocessing pipeline for numerical and categorical features
-        """
-        numeric_features = X.select_dtypes(include=["int64", "float64"]).columns
-        categorical_features = X.select_dtypes(include=["object"]).columns
+    @abstractmethod
+    def get_name(self):
+        pass
 
-        numeric_pipeline = Pipeline(steps=[
-            ("scaler", StandardScaler())
-        ])
 
-        categorical_pipeline = Pipeline(steps=[
-            ("encoder", OneHotEncoder(handle_unknown="ignore"))
-        ])
+class LinearModel(BaseModel):
 
-        preprocessor = ColumnTransformer(
-            transformers=[
-                ("num", numeric_pipeline, numeric_features),
-                ("cat", categorical_pipeline, categorical_features)
-            ]
-        )
+    def __init__(self):
+        self.model=LinearRegression()
 
-        return preprocessor
+    def train(self, X_train, y_train):
+        self.model.fit(X_train,y_train)
+
+    def predict(self, X):
+        return self.model.predict(X)
+    
+    def get_name(self):
+        return "Linear Regression"
+
+    
+    
+# ----------- Usage -----------
+X = np.array([[1], [2], [3], [4]])
+y = np.array([2, 4, 6, 8])
+
+model=LinearModel()
+model.train(X,y)
+
+pred=model.predict([[5]])
+print('Model predicted',pred)
+print("Model_name",model.get_name())

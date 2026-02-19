@@ -19,4 +19,3 @@ uv.lock
 .idea/
 .DS_Store
 mlflow.db
-**/mlflow.db
