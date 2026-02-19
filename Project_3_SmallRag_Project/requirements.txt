@@ -1,0 +1,82 @@
+# ==================================================
+# Core LangChain / Orchestration
+# ==================================================
+
+langchain>=0.2.16
+langchain-core>=0.2.38
+langchain-community>=0.2.16
+langchain-openai>=0.1.23
+langchain-groq>=0.1.6
+langgraph>=0.2.0
+langchain-experimental>=0.0.65
+langchain-google-genai>=1.0.8
+
+# ==================================================
+# Vector Stores & Retrieval
+# ==================================================
+
+faiss-cpu>=1.8.0
+chromadb>=0.5.5
+rank_bm25>=0.2.2
+
+# ==================================================
+# Embeddings / Tokenization
+# ==================================================
+
+sentence-transformers>=3.0.1
+langchain-huggingface>=0.0.3
+tiktoken>=0.7.0
+huggingface_hub>=0.23.0
+
+# ==================================================
+# Document Processing
+# ==================================================
+
+pypdf>=4.3.1
+pymupdf>=1.24.9
+pdfminer.six>=20231228
+python-docx>=1.1.2
+docx2txt>=0.8
+unstructured>=0.14.9
+
+# ==================================================
+# Data Handling & Utilities
+# ==================================================
+
+pandas>=2.2.2
+numpy>=1.26.4,<2.0
+openpyxl>=3.1.5
+jq>=1.6.0
+matplotlib>=3.9.0
+wikipedia>=1.4.0
+python-dotenv>=1.0.1
+
+# ==================================================
+# LLM APIs / Local Models
+# ==================================================
+
+ollama>=0.3.0
+flask>=3.0.3
+
+# ==================================================
+# Deep Learning Frameworks (Py 3.11 compatible)
+# ==================================================
+
+tensorflow==2.15.0
+scikit-learn>=1.4.0
+
+transformers>=4.41.2
+datasets>=2.19.0
+
+# PyTorch CPU-only
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.4.0
+torchvision>=0.19.0
+torchaudio>=2.4.0
+
+# ==================================================
+# Development
+# ==================================================
+
+ipykernel>=6.29.0
+
